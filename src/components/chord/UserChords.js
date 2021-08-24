@@ -14,7 +14,6 @@ class UserChords extends React.Component {
   componentDidMount () {
     const { user, msgAlert } = this.props
     userChords(user)
-      .then(res => { console.log(res); return res })
       .then(res => this.setState({ chords: res.data.chords }))
       .then(() => msgAlert({ heading: 'Index success', message: 'Here are your chords', variant: 'success' }))
       .catch(err => msgAlert({ heading: 'Index failed', message: 'Something went wrong: ' + err.message, variant: 'danger' }))
