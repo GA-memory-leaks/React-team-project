@@ -1,6 +1,10 @@
 import React from 'react'
-// import axios from 'axios'
-// import apiUrl from '../../apiConfig'
+import { withRouter } from 'react-router-dom'
+
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+import { createChord } from './../../api/chord-auth'
 
 class CreateChord extends React.Component {
   constructor (props) {
@@ -20,52 +24,54 @@ class CreateChord extends React.Component {
     const chordCopy = Object.assign({}, this.state.chord)
     chordCopy[inputName] = inputValue
     this.setState({
-      chord: chordCopy
+      chord: chordCopy,
+      message: ''
     })
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   // console.log(this.state)
-  //   axios({
-  //     url: apiUrl + '/books',
-  //     method: 'POST',
-  //     data: {
-  //       book: this.state.book
-  //     }
-  //   })
-  //     .then((response) =>
-  //       this.setState({
-  //         book: { title: '', author: '' },
-  //         message: 'Book created!'
-  //       })
-  //     )
-  //     .catch(console.error)
-  // }
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { user, msgAlert, history } = this.props
+    createChord(user, this.state.chord)
+      .then(res => history.push('/'))
+      .then(() => msgAlert({ heading: 'Chord Created!', message: 'Check out your wall!', variant: 'success' }))
+      .catch(error => {
+        msgAlert({ heading: 'Chord creation failed', message: 'Something went wrong: ' + error.message, variant: 'danger' })
+      })
+  }
 
   render () {
+    const { title, body } = this.state
     return (
       <>
         <h3>In Chord Create. Hello!</h3>
         <p>{this.state.message}</p>
-        <form onSubmit={this.handleSubmit}>
-          <label>Title</label>
-          <input
-            value={this.state.chord.title}
-            onChange={this.handleChange}
-            name='title'
-          />
-          <label>Body</label>
-          <input
-            value={this.state.chord.body}
-            onChange={this.handleChange}
-            name='body'
-          />
-          <button type='submit'>Create Chord</button>
-        </form>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group controlId='title'>
+            <Form.Label>Chord Title</Form.Label>
+            <Form.Control
+              required
+              name='title'
+              value={title}
+              placeholder='Chord Title'
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group controlId='body'>
+            <Form.Label>Body</Form.Label>
+            <Form.Control
+              required
+              name='body'
+              value={body}
+              placeholder='Chord Body'
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Button type='submit'>Create Chord</Button>
+        </Form>
       </>
     )
   }
 }
 
-export default CreateChord
+export default withRouter(CreateChord)

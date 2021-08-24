@@ -4,7 +4,7 @@ import axios from 'axios'
 export const createChord = (user, chordData) => {
   return axios({
     method: 'POST',
-    url: apiUrl + '/create-chord',
+    url: apiUrl + '/chords',
     headers: {
       Authorization: `Bearer ${user.token}`
     },

@@ -11,6 +11,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import CreateChord from './components/chord/CreateChord'
+import UserChords from './components/chord/UserChords'
 
 class App extends Component {
   constructor (props) {
@@ -90,9 +91,12 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/create-chord'
-            render={() => (
-              <CreateChord msgAlert={this.msgAlert} user={user} />
-            )}
+            render={() => <CreateChord msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact path='/'
+            render={() => <UserChords msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
