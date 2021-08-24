@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-
+import Button from 'react-bootstrap/Button'
 import { userChords } from './../../api/chord-auth'
 
 class UserChords extends React.Component {
@@ -19,6 +19,11 @@ class UserChords extends React.Component {
       .catch(err => msgAlert({ heading: 'Index failed', message: 'Something went wrong: ' + err.message, variant: 'danger' }))
   }
 
+  // Destroy: a custom function that deletes a chord.
+  destroy = () => {
+    alert('Destroyed')
+  }
+
   render () {
     const { chords } = this.state
     if (this.state.chords === null) {
@@ -33,6 +38,7 @@ class UserChords extends React.Component {
         <li key={chord._id}>
           <h5>{chord.title}</h5>
           <p>{chord.body}</p>
+          <Button onClick = {this.destroy}>Delete Chord</Button>
           {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
         </li>
       ))
