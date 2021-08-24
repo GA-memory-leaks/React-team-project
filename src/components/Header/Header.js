@@ -8,6 +8,7 @@ const authenticatedOptions = (
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
     <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
+    <NavLink to='/my-wall' className='nav-link'>My Wall</NavLink>
   </Fragment>
 )
 
@@ -20,7 +21,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink exact to='/' className='nav-link'>My Wall</NavLink>
+    <NavLink exact to='/' className='nav-link'>Home</NavLink>
   </Fragment>
 )
 

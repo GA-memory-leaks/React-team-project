@@ -95,7 +95,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/'
+            exact path='/my-wall'
             render={() => <UserChords msgAlert={this.msgAlert} user={user} />}
           />
         </main>

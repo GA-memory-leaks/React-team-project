@@ -16,3 +16,13 @@ export const createChord = (user, chordData) => {
     }
   })
 }
+
+export const userChords = user => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/chords',
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
