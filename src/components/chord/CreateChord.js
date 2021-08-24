@@ -14,15 +14,15 @@ class CreateChord extends React.Component {
     }
   }
 
-  // handleChange = (event) => {
-  //   const inputName = event.target.name
-  //   const inputValue = event.target.value
-  //   const bookCopy = Object.assign({}, this.state.book)
-  //   bookCopy[inputName] = inputValue
-  //   this.setState({
-  //     book: bookCopy
-  //   })
-  // }
+  handleChange = (event) => {
+    const inputName = event.target.name
+    const inputValue = event.target.value
+    const chordCopy = Object.assign({}, this.state.chord)
+    chordCopy[inputName] = inputValue
+    this.setState({
+      chord: chordCopy
+    })
+  }
 
   // handleSubmit = (event) => {
   //   event.preventDefault()
@@ -43,34 +43,26 @@ class CreateChord extends React.Component {
   //     .catch(console.error)
   // }
 
-  // render () {
-  //   return (
-  //     <div>
-  //       <h3>BookCreate</h3>
-  //       <p>{this.state.message}</p>
-  //       <form onSubmit={this.handleSubmit}>
-  //         <label>Title</label>
-  //         <input
-  //           value={this.state.book.title}
-  //           onChange={this.handleChange}
-  //           name='title'
-  //         />
-  //         <label>Author</label>
-  //         <input
-  //           value={this.state.book.author}
-  //           onChange={this.handleChange}
-  //           name='author'
-  //         />
-  //         <button type='submit'>Create Book</button>
-  //       </form>
-  //     </div>
-  //   )
-  // }
-
   render () {
     return (
       <>
         <h3>In Chord Create. Hello!</h3>
+        <p>{this.state.message}</p>
+        <form onSubmit={this.handleSubmit}>
+          <label>Title</label>
+          <input
+            value={this.state.chord.title}
+            onChange={this.handleChange}
+            name='title'
+          />
+          <label>Body</label>
+          <input
+            value={this.state.chord.body}
+            onChange={this.handleChange}
+            name='body'
+          />
+          <button type='submit'>Create Chord</button>
+        </form>
       </>
     )
   }
