@@ -28,7 +28,8 @@ class UserChords extends React.Component {
     if (chords.length === 0) {
       chordJsx = 'No chords, go create some'
     } else {
-      chordJsx = chords.map(chord => (
+      const ownedChords = chords.filter(chord => this.props.user._id === chord.owner)
+      chordJsx = ownedChords.map(chord => (
         <li key={chord._id}>
           <h5>{chord.title}</h5>
           <p>{chord.body}</p>
