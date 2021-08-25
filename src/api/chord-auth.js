@@ -26,3 +26,13 @@ export const userChords = user => {
     }
   })
 }
+
+export const deleteChord = (user, chordId) => {
+  return axios({
+    method: 'DELETE',
+    url: apiUrl + '/chords/' + chordId,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

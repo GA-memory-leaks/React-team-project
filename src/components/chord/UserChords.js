@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { userChords } from './../../api/chord-auth'
+import { userChords, deleteChord } from './../../api/chord-auth'
 
 class UserChords extends React.Component {
   constructor (props) {
@@ -20,8 +20,16 @@ class UserChords extends React.Component {
   }
 
   // Destroy: a custom function that deletes a chord.
-  destroy = () => {
-    alert('Destroyed')
+  destroy = (chordId) => {
+    const { user, msgAlert } = this.props
+    deleteChord(user, chordId)
+      .then(() => {
+        const newChords = Object.assign({}, this.state)
+        newChords.chords = newChords.chords.filter(chord => chord._id !== chordId)
+        this.setState({ chords: newChords.chords })
+      })
+      .then(() => msgAlert({ heading: 'Delete success', message: 'Chord deleted', variant: 'success' }))
+      .catch(err => msgAlert({ heading: 'Delete failed', message: 'Something went wrong: ' + err.message, variant: 'danger' }))
   }
 
   render () {
@@ -38,14 +46,14 @@ class UserChords extends React.Component {
         <li key={chord._id}>
           <h5>{chord.title}</h5>
           <p>{chord.body}</p>
-          <Button onClick = {this.destroy}>Delete Chord</Button>
+          <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
           {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
         </li>
       ))
     }
     return (
       <>
-        <h3>In User Chords. Hello!</h3>
+        <h3>Welcome to your wall!</h3>
         {chordJsx}
       </>
     )
