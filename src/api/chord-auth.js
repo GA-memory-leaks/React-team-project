@@ -37,6 +37,17 @@ export const deleteChord = (user, chordId) => {
   })
 }
 
+export const oneChord = (user, chordId) => {
+  console.log('URL is' + apiUrl + '/chords/' + chordId)
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/chords/' + chordId,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
 export const updateChord = (user, chordId, chordData) => {
   return axios({
     method: 'PATCH',

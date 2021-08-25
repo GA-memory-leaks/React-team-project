@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
-import { updateChord } from './../../api/chord-auth'
+import { updateChord, oneChord } from './../../api/chord-auth'
 
 class UpdateChord extends React.Component {
   constructor (props) {
@@ -12,6 +12,18 @@ class UpdateChord extends React.Component {
         body: ''
       }
     }
+  }
+
+  componentDidMount () {
+    console.log(this.props.match)
+    oneChord(this.props.user, this.props.match.params.id)
+      .then(response => this.setState({
+        chord: {
+          title: response.data.chord.title,
+          body: response.data.chord.body
+        }
+      }))
+      .catch(console.error)
   }
 
   handleChange = (event) => {
@@ -36,7 +48,7 @@ class UpdateChord extends React.Component {
   }
 
   render () {
-    const { title, body } = this.state
+    const { title, body } = this.state.chord
     return (
       <>
         <h3>Update your chord!</h3>
@@ -47,7 +59,6 @@ class UpdateChord extends React.Component {
               required
               name='title'
               value={title}
-              placeholder='Chord Title'
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -57,7 +68,6 @@ class UpdateChord extends React.Component {
               required
               name='body'
               value={body}
-              placeholder='Chord Body'
               onChange={this.handleChange}
             />
           </Form.Group>
