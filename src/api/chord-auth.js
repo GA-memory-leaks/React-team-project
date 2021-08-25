@@ -38,7 +38,6 @@ export const deleteChord = (user, chordId) => {
 }
 
 export const oneChord = (user, chordId) => {
-  console.log('URL is' + apiUrl + '/chords/' + chordId)
   return axios({
     method: 'GET',
     url: apiUrl + '/chords/' + chordId,

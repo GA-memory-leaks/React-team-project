@@ -15,7 +15,6 @@ class UpdateChord extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this.props.match)
     oneChord(this.props.user, this.props.match.params.id)
       .then(response => this.setState({
         chord: {
@@ -23,7 +22,9 @@ class UpdateChord extends React.Component {
           body: response.data.chord.body
         }
       }))
-      .catch(console.error)
+      .catch(error => {
+        this.props.msgAlert({ heading: 'Failed to fetch chord', message: 'Something went wrong: ' + error.message, variant: 'danger' })
+      })
   }
 
   handleChange = (event) => {
