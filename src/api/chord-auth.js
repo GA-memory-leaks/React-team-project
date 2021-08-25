@@ -26,3 +26,39 @@ export const userChords = user => {
     }
   })
 }
+
+export const deleteChord = (user, chordId) => {
+  return axios({
+    method: 'DELETE',
+    url: apiUrl + '/chords/' + chordId,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
+export const oneChord = (user, chordId) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/chords/' + chordId,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
+export const updateChord = (user, chordId, chordData) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/chords/' + chordId,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    },
+    data: {
+      chord: {
+        title: chordData.title,
+        body: chordData.body
+      }
+    }
+  })
+}
