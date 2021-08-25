@@ -47,6 +47,8 @@ class UserChords extends React.Component {
           <h5>{chord.title}</h5>
           <p>{chord.body}</p>
           <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
+          <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
+          {/* <Button onClick={() => <Redirect to={`/chords/${chord._id}/update`}/>}>Update Chord</Button> */}
           {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
         </li>
       ))
