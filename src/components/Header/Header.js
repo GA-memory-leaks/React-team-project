@@ -8,7 +8,8 @@ const authenticatedOptions = (
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
     <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
-    <NavLink to='/my-wall' className='nav-link'>My Wall</NavLink>
+    <NavLink to='/my-wall' className='nav-link'>My Sound Board</NavLink>
+    <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
   </Fragment>
 )
 
