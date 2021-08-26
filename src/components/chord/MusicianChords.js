@@ -6,25 +6,33 @@ class MusicianChords extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      chords: null
+      chords: null,
+      musician: ''
     }
   }
 
   componentDidMount () {
     const { user, msgAlert } = this.props
+    // const location = useLocation()
+    // const { musician } = location.state
     userChords(user)
-      .then(res => this.setState({ chords: res.data.chords }))
+      .then(res => {
+        this.setState({
+          chords: res.data.chords,
+          musician: this.props.location.musician
+          // musician: musician
+        })
+      })
       .then(() => msgAlert({ heading: 'Index success', message: 'Here are their chords', variant: 'success' }))
       .catch(err => msgAlert({ heading: 'Index failed', message: 'Something went wrong: ' + err.message, variant: 'danger' }))
   }
 
   render () {
-    const { chords } = this.state
+    let chordJsx
+    const { chords, musician } = this.state
     if (this.state.chords === null) {
       return 'Loading...'
-    }
-    let chordJsx
-    if (chords.length === 0) {
+    } else if (chords.length === 0) {
       chordJsx = 'This musician has not posted any chords'
     } else {
       const musicianChords = chords.filter(chord => this.props.match.params.id === chord.owner)
@@ -37,7 +45,7 @@ class MusicianChords extends React.Component {
     }
     return (
       <>
-        <h3>This Musicians wall</h3>
+        <h3>This Sound Board belongs to: { musician }</h3>
         {chordJsx}
       </>
     )
