@@ -3,3 +3,15 @@
 # react-auth-template
 
 Nathan Feldman Nick Caldwell Tommy Cravens
+
+## Deployed link:
+
+![description](https://media.git.generalassemb.ly/user/37194/files/4253a000-0680-11ec-9447-59c92c351688)
+
+![userstories](https://media.git.generalassemb.ly/user/37194/files/60210500-0680-11ec-91da-798e62725501)
+
+![wire-frames](https://media.git.generalassemb.ly/user/37194/files/70d17b00-0680-11ec-9909-d646efed6596)
+
+![wire-frames2](https://media.git.generalassemb.ly/user/37194/files/952d5780-0680-11ec-84b0-33131b3ca293)
+
+![ERD](https://media.git.generalassemb.ly/user/37194/files/c148d880-0680-11ec-8214-2b4bc47375be)
