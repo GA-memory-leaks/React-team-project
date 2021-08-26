@@ -13,6 +13,8 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateChord from './components/chord/CreateChord'
 import UserChords from './components/chord/UserChords'
 import UpdateChord from './components/chord/UpdateChord'
+import ListUsers from './components/auth/ListUsers'
+import MusicianChords from './components/chord/MusicianChords'
 
 class App extends Component {
   constructor (props) {
@@ -96,13 +98,24 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/my-wall'
+            exact
+            path='/my-wall'
             render={() => <UserChords msgAlert={this.msgAlert} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
             path='/chords/:id/update'
             render={() => <UpdateChord msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact path='/users'
+            render={() => <ListUsers msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/users/:id'
+            render={() => <MusicianChords msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
