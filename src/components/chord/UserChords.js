@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+import { Button, Card } from 'react-bootstrap'
 import { userChords, deleteChord } from './../../api/chord-auth'
 
 class UserChords extends React.Component {
@@ -42,15 +42,23 @@ class UserChords extends React.Component {
       chordJsx = 'No chords, go create some'
     } else {
       const ownedChords = chords.filter(chord => this.props.user._id === chord.owner)
-      chordJsx = ownedChords.map(chord => (
-        <li key={chord._id}>
-          <h5>{chord.title}</h5>
-          <p>{chord.body}</p>
-          <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
-          <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
-          {/* <Button onClick={() => <Redirect to={`/chords/${chord._id}/update`}/>}>Update Chord</Button> */}
-          {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
-        </li>
+      chordJsx = ownedChords.map((chord) => (
+        <Card key={chord._id} style={{ width: '18rem', margin: '5px' }}>
+          <Card.Body>
+            <Card.Title>{chord.title}</Card.Title>
+            <Card.Text>{chord.body}</Card.Text>
+            <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
+            <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
+          </Card.Body>
+        </Card>
+        // <li key={chord._id}>
+        //   <h5>{chord.title}</h5>
+        //   <p>{chord.body}</p>
+        //   <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
+        //   <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
+        //   {/* <Button onClick={() => <Redirect to={`/chords/${chord._id}/update`}/>}>Update Chord</Button> */}
+        //   {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
+        // </li>
       ))
     }
     return (
