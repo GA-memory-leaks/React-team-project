@@ -2,40 +2,12 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
 import { userChords, deleteChord } from './../../api/chord-auth'
+import { chordsContainerStyles, chordStyles, titleStyles, bodyStyles } from './chordStyles'
 
 const soundBoardTitleStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center'
-}
-
-const chordsContainerStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  alignItems: 'center'
-}
-
-const chordStyles = {
-  textShadow: '2px',
-  width: '45rem',
-  border: '1px solid black',
-  borderRadius: '7px',
-  margin: '5px auto',
-  padding: '10px'
-}
-
-const titleStyles = {
-  textShadow: '1px 1px black',
-  fontSize: '32px',
-  fontWeight: 'bold',
-  fontVariant: 'small-caps',
-  color: '#9966cc'
-}
-
-const bodyStyles = {
-  fontSize: '20px'
 }
 
 class UserChords extends React.Component {
@@ -73,15 +45,17 @@ class UserChords extends React.Component {
       return 'Loading...'
     }
     let chordJsx
-    if (chords.length === 0) {
-      chordJsx = 'No chords, go create some'
+    const ownedChords = chords.filter(
+      (chord) => this.props.user._id === chord.owner
+    )
+    if (ownedChords.length === 0) {
+      chordJsx = 'You have not created any chords yet, go create some!'
     } else {
-      const ownedChords = chords.filter(chord => this.props.user._id === chord.owner)
       chordJsx = ownedChords.map((chord) => (
-        <Card key={chord._id} style={chordStyles}>
+        <Card key={chord._id} styles={{ chordStyles }}>
           <Card.Body>
-            <Card.Title style={titleStyles}>{chord.title}</Card.Title>
-            <Card.Text style={bodyStyles}>{chord.body}</Card.Text>
+            <Card.Title styles={{ titleStyles }}>{chord.title}</Card.Title>
+            <Card.Text styles={{ bodyStyles }}>{chord.body}</Card.Text>
             <Button onClick={() => this.destroy(chord._id)} style={{ marginRight: '6px' }}>Delete Chord</Button>
             <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
           </Card.Body>
@@ -93,7 +67,7 @@ class UserChords extends React.Component {
         <div style={soundBoardTitleStyles}>
           <h3 style={{ margin: '0 auto' }}>Welcome to your Sound Board, {this.props.user.name}!</h3>
         </div>
-        <div style={chordsContainerStyles}>
+        <div style={{ chordsContainerStyles }}>
           {chordJsx}
         </div>
       </>
