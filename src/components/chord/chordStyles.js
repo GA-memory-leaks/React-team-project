@@ -1,4 +1,10 @@
 
+export const soundBoardTitleStyles = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center'
+}
+
 export const chordsContainerStyles = {
   display: 'flex',
   flexDirection: 'column',

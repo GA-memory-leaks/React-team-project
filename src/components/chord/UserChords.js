@@ -2,13 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
 import { userChords, deleteChord } from './../../api/chord-auth'
-import { chordsContainerStyles, chordStyles, titleStyles, bodyStyles } from './chordStyles'
-
-const soundBoardTitleStyles = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center'
-}
+import { soundBoardTitleStyles, chordsContainerStyles, chordStyles, titleStyles, bodyStyles } from './chordStyles'
 
 class UserChords extends React.Component {
   constructor (props) {
@@ -41,6 +35,7 @@ class UserChords extends React.Component {
 
   render () {
     const { chords } = this.state
+    console.log(chordStyles)
     if (this.state.chords === null) {
       return 'Loading...'
     }
@@ -52,10 +47,10 @@ class UserChords extends React.Component {
       chordJsx = 'You have not created any chords yet, go create some!'
     } else {
       chordJsx = ownedChords.map((chord) => (
-        <Card key={chord._id} styles={{ chordStyles }}>
+        <Card key={chord._id} style={chordStyles}>
           <Card.Body>
-            <Card.Title styles={{ titleStyles }}>{chord.title}</Card.Title>
-            <Card.Text styles={{ bodyStyles }}>{chord.body}</Card.Text>
+            <Card.Title style={titleStyles}>{chord.title}</Card.Title>
+            <Card.Text style={bodyStyles}>{chord.body}</Card.Text>
             <Button onClick={() => this.destroy(chord._id)} style={{ marginRight: '6px' }}>Delete Chord</Button>
             <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
           </Card.Body>
@@ -67,7 +62,7 @@ class UserChords extends React.Component {
         <div style={soundBoardTitleStyles}>
           <h3 style={{ margin: '0 auto' }}>Welcome to your Sound Board, {this.props.user.name}!</h3>
         </div>
-        <div style={{ chordsContainerStyles }}>
+        <div style={chordsContainerStyles}>
           {chordJsx}
         </div>
       </>
