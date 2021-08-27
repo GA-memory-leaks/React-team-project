@@ -39,7 +39,7 @@ class SignUp extends Component {
           variant: 'success'
         })
       )
-      .then(() => history.push('/'))
+      .then(() => history.push('/my-wall'))
       .catch((error) => {
         this.setState({ email: '', password: '', passwordConfirmation: '' })
         msgAlert({
