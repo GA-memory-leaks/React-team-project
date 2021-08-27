@@ -55,7 +55,7 @@ class UserChords extends React.Component {
     }
     return (
       <>
-        <h3>Welcome to your wall!</h3>
+        <h3>Welcome to your wall, {this.props.user.name}!</h3>
         {chordJsx}
       </>
     )
