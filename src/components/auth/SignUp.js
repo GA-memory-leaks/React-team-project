@@ -102,7 +102,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button variant='primary' type='submit'>Submit</Button>
+            <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
           </Form>
         </div>
       </div>

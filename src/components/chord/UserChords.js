@@ -1,7 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+import { Button, Card } from 'react-bootstrap'
 import { userChords, deleteChord } from './../../api/chord-auth'
+import { soundBoardTitleStyles, chordsContainerStyles, chordStyles, titleStyles, bodyStyles } from './chordStyles'
 
 class UserChords extends React.Component {
   constructor (props) {
@@ -38,25 +39,31 @@ class UserChords extends React.Component {
       return 'Loading...'
     }
     let chordJsx
-    if (chords.length === 0) {
-      chordJsx = 'No chords, go create some'
+    const ownedChords = chords.filter(
+      (chord) => this.props.user._id === chord.owner
+    )
+    if (ownedChords.length === 0) {
+      chordJsx = 'You have not created any chords yet, go create some!'
     } else {
-      const ownedChords = chords.filter(chord => this.props.user._id === chord.owner)
-      chordJsx = ownedChords.map(chord => (
-        <li key={chord._id}>
-          <h5>{chord.title}</h5>
-          <p>{chord.body}</p>
-          <Button onClick={() => this.destroy(chord._id)}>Delete Chord</Button>
-          <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
-          {/* <Button onClick={() => <Redirect to={`/chords/${chord._id}/update`}/>}>Update Chord</Button> */}
-          {/* <Link to={`/chords/${chord._id}`}>{chord.title}</Link> */}
-        </li>
+      chordJsx = ownedChords.map((chord) => (
+        <Card key={chord._id} style={chordStyles}>
+          <Card.Body>
+            <Card.Title style={titleStyles}>{chord.title}</Card.Title>
+            <Card.Text style={bodyStyles}>{chord.body}</Card.Text>
+            <Button onClick={() => this.destroy(chord._id)} style={{ marginRight: '6px' }}>Delete Chord</Button>
+            <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
+          </Card.Body>
+        </Card>
       ))
     }
     return (
       <>
-        <h3>Welcome to your wall, {this.props.user.name}!</h3>
-        {chordJsx}
+        <div style={soundBoardTitleStyles}>
+          <h3 style={{ margin: '0 auto' }}>Welcome to your Sound Board, {this.props.user.name}!</h3>
+        </div>
+        <div style={chordsContainerStyles}>
+          {chordJsx}
+        </div>
       </>
     )
   }

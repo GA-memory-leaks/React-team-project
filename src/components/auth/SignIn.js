@@ -36,7 +36,7 @@ onSignIn = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => history.push('/my-wall'))
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({
@@ -77,7 +77,7 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
         </Form>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { userChords } from './../../api/chord-auth'
+import { Card } from 'react-bootstrap'
+import { soundBoardTitleStyles, chordsContainerStyles, chordStyles, titleStyles, bodyStyles } from './chordStyles'
 
 class MusicianChords extends React.Component {
   constructor (props) {
@@ -28,25 +30,32 @@ class MusicianChords extends React.Component {
   }
 
   render () {
-    let chordJsx
     const { chords, musician } = this.state
-    if (this.state.chords === null) {
+    if (chords === null) {
       return 'Loading...'
-    } else if (chords.length === 0) {
+    }
+    let chordJsx
+    const musicianChords = chords.filter(chord => this.props.match.params.id === chord.owner)
+    if (musicianChords.length === 0) {
       chordJsx = `${musician} has not posted any chords`
     } else {
-      const musicianChords = chords.filter(chord => this.props.match.params.id === chord.owner)
       chordJsx = musicianChords.map(chord => (
-        <li key={chord._id}>
-          <h5>{chord.title}</h5>
-          <p>{chord.body}</p>
-        </li>
+        <Card key={chord._id} style={chordStyles}>
+          <Card.Body>
+            <Card.Title style={titleStyles}>{chord.title}</Card.Title>
+            <Card.Text style={bodyStyles}>{chord.body}</Card.Text>
+          </Card.Body>
+        </Card>
       ))
     }
     return (
       <>
-        <h3>This Sound Board belongs to { musician }</h3>
-        {chordJsx}
+        <div style={soundBoardTitleStyles}>
+          <h3 style={{ margin: '0 auto' }}>This Sound Board belongs to {musician}</h3>
+        </div>
+        <div style={chordsContainerStyles}>
+          {chordJsx}
+        </div>
       </>
     )
   }

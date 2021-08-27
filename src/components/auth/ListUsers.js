@@ -1,6 +1,8 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { listUsers } from './../../api/auth'
+import { Button, Card } from 'react-bootstrap'
+import { soundBoardTitleStyles, chordsContainerStyles, chordStyles, titleStyles } from './../chord/chordStyles'
 
 class ListUsers extends React.Component {
   constructor (props) {
@@ -24,20 +26,25 @@ class ListUsers extends React.Component {
       return 'Loading...'
     }
     let usersJsx
-    if (users.length === 0) {
+    const otherMusicians = users.filter(musician => this.props.user._id !== musician._id)
+    if (otherMusicians.length === 0) {
       usersJsx = 'No other musicians, check back soon'
     } else {
-      const otherMusicians = users.filter(musician => this.props.user._id !== musician._id)
       usersJsx = otherMusicians.map(musician => (
-        <li key={musician._id}>
-          <Link to={ { pathname: `/users/${musician._id}`, musician: musician.name }}><h5>{musician.name}</h5></Link>
-        </li>
+        <Card key={musician._id} style={chordStyles}>
+          <Card.Body>
+            <Card.Title style={titleStyles}>{musician.name}</Card.Title>
+            <Button onClick={ () => this.props.history.push({ pathname: `/users/${musician._id}`, musician: musician.name })}>View Sound Board</Button>
+          </Card.Body>
+        </Card>
       ))
     }
     return (
       <>
-        <h3>Here are all the other musicians</h3>
-        {usersJsx}
+        <div style={soundBoardTitleStyles}>
+          <h3 style={{ margin: '0 auto' }}>Here are all the other musicians</h3>
+        </div>
+        <div style={chordsContainerStyles}>{usersJsx}</div>
       </>
     )
   }
