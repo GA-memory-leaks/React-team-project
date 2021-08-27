@@ -67,7 +67,7 @@ class CreateChord extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button type='submit'>Create Chord</Button>
+          <Button type='submit' style={{ marginTop: '5px' }}>Create Chord</Button>
         </Form>
       </>
     )

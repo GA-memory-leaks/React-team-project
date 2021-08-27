@@ -35,7 +35,6 @@ class UserChords extends React.Component {
 
   render () {
     const { chords } = this.state
-    console.log(chordStyles)
     if (this.state.chords === null) {
       return 'Loading...'
     }

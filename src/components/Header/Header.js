@@ -6,11 +6,11 @@ import Logo from './../../images/Virtuoso-logo.png'
 
 const authenticatedOptions = (
   <Fragment>
+    <NavLink to='/my-wall' className='nav-link'>My Sound Board</NavLink>
+    <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
+    <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
-    <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
-    <NavLink to='/my-wall' className='nav-link'>My Sound Board</NavLink>
-    <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
   </Fragment>
 )
 
@@ -21,11 +21,11 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
-const alwaysOptions = (
-  <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
-  </Fragment>
-)
+// const alwaysOptions = (
+//   <Fragment>
+//     <NavLink exact to='/' className='nav-link'>Home</NavLink>
+//   </Fragment>
+// )
 
 const Header = ({ user }) => (
   <Navbar variant='dark' expand='md' style={{ background: '#29A8E0' }}>
@@ -37,10 +37,10 @@ const Header = ({ user }) => (
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
       <Nav className='ml-auto'>
-        {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email}</span>
-        )}
-        {alwaysOptions}
+        {/* {user && (
+          <span className='navbar-text mr-2'>Welcome, {user.name}</span>
+        )} */}
+        {/* {alwaysOptions} */}
         {user ? authenticatedOptions : unauthenticatedOptions}
       </Nav>
     </Navbar.Collapse>
