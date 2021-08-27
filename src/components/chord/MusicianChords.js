@@ -12,14 +12,14 @@ class MusicianChords extends React.Component {
   }
 
   componentDidMount () {
-    const { user, msgAlert } = this.props
+    const { user, msgAlert, location } = this.props
     // const location = useLocation()
     // const { musician } = location.state
     userChords(user)
       .then(res => {
         this.setState({
           chords: res.data.chords,
-          musician: this.props.location.musician
+          musician: location.musician
           // musician: musician
         })
       })
@@ -33,7 +33,7 @@ class MusicianChords extends React.Component {
     if (this.state.chords === null) {
       return 'Loading...'
     } else if (chords.length === 0) {
-      chordJsx = 'This musician has not posted any chords'
+      chordJsx = `${musician} has not posted any chords`
     } else {
       const musicianChords = chords.filter(chord => this.props.match.params.id === chord.owner)
       chordJsx = musicianChords.map(chord => (
@@ -45,7 +45,7 @@ class MusicianChords extends React.Component {
     }
     return (
       <>
-        <h3>This Sound Board belongs to: { musician }</h3>
+        <h3>This Sound Board belongs to { musician }</h3>
         {chordJsx}
       </>
     )

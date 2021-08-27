@@ -30,7 +30,7 @@ class ListUsers extends React.Component {
       const otherMusicians = users.filter(musician => this.props.user._id !== musician._id)
       usersJsx = otherMusicians.map(musician => (
         <li key={musician._id}>
-          <Link to={ { pathname: `/users/${musician._id}`, musician: musician.email }}><h5>{musician.email}</h5></Link>
+          <Link to={ { pathname: `/users/${musician._id}`, musician: musician.name }}><h5>{musician.name}</h5></Link>
         </li>
       ))
     }
