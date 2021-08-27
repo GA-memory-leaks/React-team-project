@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Logo from './../../images/Virtuoso-logo.png'
 
 const authenticatedOptions = (
@@ -21,26 +21,16 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
-// const alwaysOptions = (
-//   <Fragment>
-//     <NavLink exact to='/' className='nav-link'>Home</NavLink>
-//   </Fragment>
-// )
-
 const Header = ({ user }) => (
   <Navbar variant='dark' expand='md' style={{ background: '#29A8E0' }}>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
+      <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank' rel='noopener noreferrer'>
         <img style={{ height: '70px', width: 'auto' }} src={Logo} />
-      </Link>
+      </a>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
       <Nav className='ml-auto'>
-        {/* {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.name}</span>
-        )} */}
-        {/* {alwaysOptions} */}
         {user ? authenticatedOptions : unauthenticatedOptions}
       </Nav>
     </Navbar.Collapse>
