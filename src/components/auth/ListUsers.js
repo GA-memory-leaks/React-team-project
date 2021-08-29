@@ -34,7 +34,7 @@ class ListUsers extends React.Component {
         <Card key={musician._id} style={chordStyles}>
           <Card.Body>
             <Card.Title style={titleStyles}>{musician.name}</Card.Title>
-            <Button onClick={ () => this.props.history.push({ pathname: `/users/${musician._id}`, musician: musician.name })}>View Sound Board</Button>
+            <Button onClick={ () => this.props.history.push({ pathname: `/users/${musician._id}`, musician: musician.name })} style={{ fontFamily: 'Playfair Display' }}>View Sound Board</Button>
           </Card.Body>
         </Card>
       ))
@@ -42,9 +42,11 @@ class ListUsers extends React.Component {
     return (
       <>
         <div style={soundBoardTitleStyles}>
-          <h3 style={{ margin: '0 auto' }}>Here are all the other musicians</h3>
+          <h1 style={{ margin: '0 auto' }}>THE MOSH PIT!</h1>
         </div>
-        <div style={chordsContainerStyles}>{usersJsx}</div>
+        <div style={chordsContainerStyles}>
+          {usersJsx}
+        </div>
       </>
     )
   }

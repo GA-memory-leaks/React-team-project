@@ -50,8 +50,8 @@ class UserChords extends React.Component {
           <Card.Body>
             <Card.Title style={titleStyles}>{chord.title}</Card.Title>
             <Card.Text style={bodyStyles}>{chord.body}</Card.Text>
-            <Button onClick={() => this.destroy(chord._id)} style={{ marginRight: '6px' }}>Delete Chord</Button>
-            <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)}>Update Chord</Button>
+            <Button onClick={() => this.destroy(chord._id)} style={{ marginRight: '6px', fontFamily: 'Playfair Display' }}>Delete Chord</Button>
+            <Button onClick={() => this.props.history.push(`/chords/${chord._id}/update`)} style={{ fontFamily: 'Playfair Display' }}>Update Chord</Button>
           </Card.Body>
         </Card>
       ))
@@ -59,7 +59,7 @@ class UserChords extends React.Component {
     return (
       <>
         <div style={soundBoardTitleStyles}>
-          <h3 style={{ margin: '0 auto' }}>Welcome to your Sound Board, {this.props.user.name}!</h3>
+          <h1 style={{ margin: '0 auto' }}>Welcome, {this.props.user.name}!</h1>
         </div>
         <div style={chordsContainerStyles}>
           {chordJsx}

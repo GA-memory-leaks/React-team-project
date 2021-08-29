@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Sedgwick+Ave&display=swap');
 
 body {
   margin: 0 auto;
@@ -8,4 +9,19 @@ body {
 .borderWidth {
   border-width: 1px;
   border-color: white;
+}
+
+.btn {
+  background-color: #29A8E0;
+  border-color: #29A8E0;
+}
+
+.btn:hover {
+  background-color: #9966CC;
+  border-color: #9966CC;
+}
+
+.nav-link {
+  color: #FFD840 !important;
+  opacity: 0.85;
 }
