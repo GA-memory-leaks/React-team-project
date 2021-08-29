@@ -2,19 +2,19 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Button, Card } from 'react-bootstrap'
 
 import { createChord } from './../../api/chord-auth'
+import { soundBoardTitleStyles, chordStyles, titleStyles } from './chordStyles'
 
 class CreateChord extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       chord: {
-        title: '',
-        body: ''
-      },
-      message: ''
+        title: 'Chord Title',
+        body: 'Chord Body'
+      }
     }
   }
 
@@ -24,8 +24,7 @@ class CreateChord extends React.Component {
     const chordCopy = Object.assign({}, this.state.chord)
     chordCopy[inputName] = inputValue
     this.setState({
-      chord: chordCopy,
-      message: ''
+      chord: chordCopy
     })
   }
 
@@ -34,41 +33,41 @@ class CreateChord extends React.Component {
     const { user, msgAlert, history } = this.props
     createChord(user, this.state.chord)
       .then(res => history.push('/my-sound-board'))
-      .then(() => msgAlert({ heading: 'Chord Created!', message: 'Check out your sound board!', variant: 'success' }))
       .catch(error => {
         msgAlert({ heading: 'Chord creation failed', message: 'Something went wrong: ' + error.message, variant: 'danger' })
       })
   }
 
   render () {
-    const { title, body } = this.state
+    const { title, body } = this.state.chord
     return (
       <>
-        <h3>In Chord Create. Hello!</h3>
-        <p>{this.state.message}</p>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId='title'>
-            <Form.Label>Chord Title</Form.Label>
-            <Form.Control
-              required
-              name='title'
-              value={title}
-              placeholder='Chord Title'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='body'>
-            <Form.Label>Body</Form.Label>
-            <Form.Control
-              required
-              name='body'
-              value={body}
-              placeholder='Chord Body'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button type='submit' style={{ marginTop: '5px' }}>Create Chord</Button>
-        </Form>
+        <div style={soundBoardTitleStyles}>
+          <h1 style={{ margin: '0 auto' }}>Create a chord for your sound board!</h1>
+        </div>
+        <Card style={chordStyles}>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId='title'>
+              <Form.Control
+                required
+                name='title'
+                value={title}
+                onChange={this.handleChange}
+                style={titleStyles}
+              />
+            </Form.Group>
+            <Form.Group controlId='body'>
+              {/* <Form.Label>Body</Form.Label> */}
+              <Form.Control
+                required
+                name='body'
+                value={body}
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Button type='submit' style={{ marginTop: '5px' }}>Create Chord</Button>
+          </Form>
+        </Card>
       </>
     )
   }
