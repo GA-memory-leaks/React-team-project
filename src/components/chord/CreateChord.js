@@ -60,10 +60,6 @@ class CreateChord extends React.Component {
               {/* <Form.Label>Body</Form.Label> */}
               <Form.Control
                 required
-                type='textarea'
-                cols='20'
-                rows='2'
-                wrap='hard'
                 name='body'
                 value={body}
                 onChange={this.handleChange}

@@ -7,13 +7,13 @@ import Logo from './../../images/Virtuoso-logo.png'
 const authenticatedOptions = (
   <Fragment>
     <div style={{ display: 'inline-flex' }}>
-      <NavLink to='/my-sound-board' className='nav-link'>My Sound Board</NavLink>
-      <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
-      <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
+      <NavLink to='/my-sound-board' className='nav-link' style={{ fontFamily: 'Playfair Display' }}>My Sound Board</NavLink>
+      <NavLink to='/create-chord' className='nav-link' style={{ fontFamily: 'Playfair Display' }}>Create Chord</NavLink>
+      <NavLink to='/users/' className='nav-link' style={{ fontFamily: 'Playfair Display' }}>Find Other Musicians</NavLink>
     </div>
     <div style={{ display: 'inline-flex', marginRight: '22px' }}>
-      <NavLink to='/change-password' className='nav-link' style={{ justifyContent: 'flex-end' }}>Change Password</NavLink>
-      <NavLink to='/sign-out' className='nav-link' style={{ justifyContent: 'flex-end' }}>Sign Out</NavLink>
+      <NavLink to='/change-password' className='nav-link' style={{ justifyContent: 'flex-end', fontFamily: 'Playfair Display' }}>Change Password</NavLink>
+      <NavLink to='/sign-out' className='nav-link' style={{ justifyContent: 'flex-end', fontFamily: 'Playfair Display' }}>Sign Out</NavLink>
     </div>
   </Fragment>
 )
@@ -21,8 +21,8 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
   <Fragment>
     <div style={{ display: 'inline-flex' }}>
-      <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
-      <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
+      <NavLink to='/sign-up' className='nav-link' style={{ fontFamily: 'Playfair Display' }}>Sign Up</NavLink>
+      <NavLink to='/sign-in' className='nav-link' style={{ fontFamily: 'Playfair Display' }}>Sign In</NavLink>
     </div>
   </Fragment>
 )

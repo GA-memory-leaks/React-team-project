@@ -58,7 +58,7 @@ class ChangePassword extends Component {
           <Card style={formChordStyles}>
             <Form onSubmit={this.onChangePassword}>
               <Form.Group controlId='oldPassword'>
-                <Form.Label>Old password</Form.Label>
+                <Form.Label style={{ fontFamily: 'Playfair Display' }}>Old password</Form.Label>
                 <Form.Control
                   required
                   name='oldPassword'
@@ -69,7 +69,7 @@ class ChangePassword extends Component {
                 />
               </Form.Group>
               <Form.Group controlId='newPassword'>
-                <Form.Label>New Password</Form.Label>
+                <Form.Label style={{ fontFamily: 'Playfair Display' }}>New Password</Form.Label>
                 <Form.Control
                   required
                   name='newPassword'
@@ -79,7 +79,7 @@ class ChangePassword extends Component {
                   style={passwordBodyStyles}
                 />
               </Form.Group>
-              <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
+              <Button variant='primary' type='submit' style={{ marginTop: '5px', fontFamily: 'Playfair Display' }}>Submit</Button>
             </Form>
           </Card>
         </div>

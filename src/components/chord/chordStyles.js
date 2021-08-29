@@ -87,5 +87,6 @@ export const formChordStyles = {
 export const passwordBodyStyles = {
   fontSize: '20px',
   paddingTop: '0px',
-  paddingBottom: '0px'
+  paddingBottom: '0px',
+  fontFamily: 'Playfair Display'
 }

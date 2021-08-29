@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Form, Button, Card } from 'react-bootstrap'
+import { formSoundBoardTitleStyles, formChordStyles, passwordBodyStyles } from './../chord/chordStyles'
 
 class SignIn extends Component {
   constructor (props) {
@@ -53,32 +53,36 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
-        <Form onSubmit={this.onSignIn}>
-          <Form.Group controlId='email'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              required
-              type='email'
-              name='email'
-              value={email}
-              placeholder='Enter email'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              required
-              name='password'
-              value={password}
-              type='password'
-              placeholder='Password'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
-        </Form>
+        <div style={formSoundBoardTitleStyles}>
+          <h3 style={{ margin: '0 auto' }}>Sign In</h3>
+        </div>
+        <Card style={formChordStyles}>
+          <Form onSubmit={this.onSignIn}>
+            <Form.Group controlId='email'>
+              <Form.Label style={{ fontFamily: 'Playfair Display' }}>Email address</Form.Label>
+              <Form.Control
+                required
+                type='email'
+                name='email'
+                value={email}
+                onChange={this.handleChange}
+                style={passwordBodyStyles}
+              />
+            </Form.Group>
+            <Form.Group controlId='password'>
+              <Form.Label style={{ fontFamily: 'Playfair Display' }}>Password</Form.Label>
+              <Form.Control
+                required
+                name='password'
+                value={password}
+                type='password'
+                onChange={this.handleChange}
+                style={passwordBodyStyles}
+              />
+            </Form.Group>
+            <Button variant='primary' type='submit' style={{ marginTop: '5px', fontFamily: 'Playfair Display' }}>Submit</Button>
+          </Form>
+        </Card>
       </div>
     </div>
   )
