@@ -36,14 +36,14 @@ class UserChords extends React.Component {
   render () {
     const { chords } = this.state
     if (this.state.chords === null) {
-      return 'Loading...'
+      return (<p style={{ fontFamily: 'Playfair Display' }}>Loading...</p>)
     }
     let chordJsx
     const ownedChords = chords.filter(
       (chord) => this.props.user._id === chord.owner
     )
     if (ownedChords.length === 0) {
-      chordJsx = 'You have not created any chords yet, go create some!'
+      chordJsx = <p style={{ fontFamily: 'Playfair Display' }}>You have not created any chords yet, go create some!</p>
     } else {
       chordJsx = ownedChords.map((chord) => (
         <Card key={chord._id} style={chordStyles}>
