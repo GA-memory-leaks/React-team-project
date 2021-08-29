@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import { Button, Card } from 'react-bootstrap'
 
 import { createChord } from './../../api/chord-auth'
-import { soundBoardTitleStyles, formChordStyles, formTitleStyles, formBodyStyles } from './chordStyles'
+import { formSoundBoardTitleStyles, formChordStyles, formTitleStyles, formBodyStyles } from './chordStyles'
 
 class CreateChord extends React.Component {
   constructor (props) {
@@ -42,7 +42,7 @@ class CreateChord extends React.Component {
     const { title, body } = this.state.chord
     return (
       <>
-        <div style={soundBoardTitleStyles}>
+        <div style={formSoundBoardTitleStyles}>
           <h1 style={{ margin: '0 auto' }}>Create a chord for your sound board!</h1>
         </div>
         <Card style={formChordStyles}>
@@ -60,6 +60,10 @@ class CreateChord extends React.Component {
               {/* <Form.Label>Body</Form.Label> */}
               <Form.Control
                 required
+                type='textarea'
+                cols='20'
+                rows='2'
+                wrap='hard'
                 name='body'
                 value={body}
                 onChange={this.handleChange}

@@ -5,7 +5,9 @@ export const soundBoardTitleStyles = {
   textShadow: '1px 1px black',
   fontSize: '32px',
   fontWeight: 'bold',
-  color: '#9966cc'
+  color: '#9966cc',
+  marginTop: '13px',
+  marginBottom: '13px'
 }
 
 export const chordsContainerStyles = {
@@ -19,8 +21,9 @@ export const chordStyles = {
   width: '45rem',
   border: '1px solid black',
   borderRadius: '13px',
-  margin: '5px auto',
-  padding: '10px'
+  margin: '7px auto',
+  padding: '10px',
+  boxShadow: '1px 1px 6px gray'
 }
 
 export const titleStyles = {
@@ -46,6 +49,18 @@ export const formTitleStyles = {
   paddingBottom: '0px'
 }
 
+export const formSoundBoardTitleStyles = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  textShadow: '1px 1px black',
+  fontSize: '32px',
+  fontWeight: 'bold',
+  color: '#9966cc',
+  marginTop: '13px',
+  marginBottom: '18px'
+}
+
 export const formBodyStyles = {
   fontSize: '20px',
   border: 'none',
@@ -59,5 +74,6 @@ export const formChordStyles = {
   border: '1px solid black',
   borderRadius: '13px',
   margin: '5px auto',
-  padding: '10px 10px 26px 10px'
+  padding: '10px 10px 26px 10px',
+  boxShadow: '1px 1px 6px gray'
 }
