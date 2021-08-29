@@ -57,7 +57,7 @@ class SignUp extends Component {
       <div className='row'>
         <div className='col-sm-10 col-md-8 mx-auto mt-5'>
           <div style={formSoundBoardTitleStyles}>
-            <h3 style={{ margin: '0 auto' }}>Sign In</h3>
+            <h3 style={{ margin: '0 auto' }}>Sign Up</h3>
           </div>
           <Card style={formChordStyles}>
             <Form onSubmit={this.onSignUp}>
