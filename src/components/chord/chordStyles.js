@@ -7,7 +7,8 @@ export const soundBoardTitleStyles = {
   fontWeight: 'bold',
   color: '#9966cc',
   marginTop: '13px',
-  marginBottom: '13px'
+  marginBottom: '13px',
+  fontFamily: 'Sedgwick Ave'
 }
 
 export const chordsContainerStyles = {
@@ -31,11 +32,13 @@ export const titleStyles = {
   fontSize: '32px',
   fontWeight: 'bold',
   fontVariant: 'small-caps',
-  color: '#9966cc'
+  color: '#9966cc',
+  fontFamily: 'Sedgwick Ave'
 }
 
 export const bodyStyles = {
-  fontSize: '20px'
+  fontSize: '20px',
+  fontFamily: 'Playfair Display'
 }
 
 export const formTitleStyles = {
@@ -46,7 +49,8 @@ export const formTitleStyles = {
   color: '#9966cc',
   border: 'none',
   paddingTop: '0px',
-  paddingBottom: '0px'
+  paddingBottom: '0px',
+  fontFamily: 'Sedgwick Ave'
 }
 
 export const formSoundBoardTitleStyles = {
@@ -58,14 +62,16 @@ export const formSoundBoardTitleStyles = {
   fontWeight: 'bold',
   color: '#9966cc',
   marginTop: '13px',
-  marginBottom: '18px'
+  marginBottom: '18px',
+  fontFamily: 'Sedgwick Ave'
 }
 
 export const formBodyStyles = {
   fontSize: '20px',
   border: 'none',
   paddingTop: '0px',
-  paddingBottom: '0px'
+  paddingBottom: '0px',
+  fontFamily: 'Playfair Display'
 }
 
 export const formChordStyles = {
@@ -76,4 +82,10 @@ export const formChordStyles = {
   margin: '5px auto',
   padding: '10px 10px 26px 10px',
   boxShadow: '1px 1px 6px gray'
+}
+
+export const passwordBodyStyles = {
+  fontSize: '20px',
+  paddingTop: '0px',
+  paddingBottom: '0px'
 }

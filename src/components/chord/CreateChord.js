@@ -71,7 +71,7 @@ class CreateChord extends React.Component {
               />
             </Form.Group>
             <div style={{ marginLeft: '12px' }}>
-              <Button type='submit' style={{ marginTop: '11px' }}>Create Chord</Button>
+              <Button type='submit' style={{ marginTop: '11px', fontFamily: 'Playfair Display' }}>Create Chord</Button>
             </div>
           </Form>
         </Card>

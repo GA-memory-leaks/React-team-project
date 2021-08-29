@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { changePassword } from '../../api/auth'
 import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAlert/messages'
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Form, Button, Card } from 'react-bootstrap'
+import { formSoundBoardTitleStyles, formChordStyles, passwordBodyStyles } from './../chord/chordStyles'
 
 class ChangePassword extends Component {
   constructor (props) {
@@ -52,32 +52,36 @@ class ChangePassword extends Component {
     return (
       <div className='row'>
         <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-          <h3>Change Password</h3>
-          <Form onSubmit={this.onChangePassword}>
-            <Form.Group controlId='oldPassword'>
-              <Form.Label>Old password</Form.Label>
-              <Form.Control
-                required
-                name='oldPassword'
-                value={oldPassword}
-                type='password'
-                placeholder='Old Password'
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId='newPassword'>
-              <Form.Label>New Password</Form.Label>
-              <Form.Control
-                required
-                name='newPassword'
-                value={newPassword}
-                type='password'
-                placeholder='New Password'
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
-          </Form>
+          <div style={formSoundBoardTitleStyles}>
+            <h3 style={{ margin: '0 auto' }}>Change Password</h3>
+          </div>
+          <Card style={formChordStyles}>
+            <Form onSubmit={this.onChangePassword}>
+              <Form.Group controlId='oldPassword'>
+                <Form.Label>Old password</Form.Label>
+                <Form.Control
+                  required
+                  name='oldPassword'
+                  value={oldPassword}
+                  type='password'
+                  onChange={this.handleChange}
+                  style={passwordBodyStyles}
+                />
+              </Form.Group>
+              <Form.Group controlId='newPassword'>
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  required
+                  name='newPassword'
+                  value={newPassword}
+                  type='password'
+                  onChange={this.handleChange}
+                  style={passwordBodyStyles}
+                />
+              </Form.Group>
+              <Button variant='primary' type='submit' style={{ marginTop: '5px' }}>Submit</Button>
+            </Form>
+          </Card>
         </div>
       </div>
     )
