@@ -5,15 +5,15 @@ import Form from 'react-bootstrap/Form'
 import { Button, Card } from 'react-bootstrap'
 
 import { createChord } from './../../api/chord-auth'
-import { soundBoardTitleStyles, chordStyles, titleStyles } from './chordStyles'
+import { soundBoardTitleStyles, formChordStyles, formTitleStyles, formBodyStyles } from './chordStyles'
 
 class CreateChord extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       chord: {
-        title: 'Chord Title',
-        body: 'Chord Body'
+        title: 'Write your chord title here!',
+        body: 'Add a body!'
       }
     }
   }
@@ -45,27 +45,30 @@ class CreateChord extends React.Component {
         <div style={soundBoardTitleStyles}>
           <h1 style={{ margin: '0 auto' }}>Create a chord for your sound board!</h1>
         </div>
-        <Card style={chordStyles}>
+        <Card style={formChordStyles}>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId='title'>
+            <Form.Group controlId='title' style={{ marginTop: '9px' }}>
               <Form.Control
                 required
                 name='title'
                 value={title}
                 onChange={this.handleChange}
-                style={titleStyles}
+                style={formTitleStyles}
               />
             </Form.Group>
-            <Form.Group controlId='body'>
+            <Form.Group controlId='body' style={{ marginTop: '6px', marginBottom: '5px' }}>
               {/* <Form.Label>Body</Form.Label> */}
               <Form.Control
                 required
                 name='body'
                 value={body}
                 onChange={this.handleChange}
+                style={formBodyStyles}
               />
             </Form.Group>
-            <Button type='submit' style={{ marginTop: '5px' }}>Create Chord</Button>
+            <div style={{ marginLeft: '12px' }}>
+              <Button type='submit' style={{ marginTop: '11px' }}>Create Chord</Button>
+            </div>
           </Form>
         </Card>
       </>
