@@ -33,8 +33,8 @@ class CreateChord extends React.Component {
     event.preventDefault()
     const { user, msgAlert, history } = this.props
     createChord(user, this.state.chord)
-      .then(res => history.push('/my-wall'))
-      .then(() => msgAlert({ heading: 'Chord Created!', message: 'Check out your wall!', variant: 'success' }))
+      .then(res => history.push('/my-sound-board'))
+      .then(() => msgAlert({ heading: 'Chord Created!', message: 'Check out your sound board!', variant: 'success' }))
       .catch(error => {
         msgAlert({ heading: 'Chord creation failed', message: 'Something went wrong: ' + error.message, variant: 'danger' })
       })

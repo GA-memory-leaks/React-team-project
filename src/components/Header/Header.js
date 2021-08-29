@@ -6,18 +6,24 @@ import Logo from './../../images/Virtuoso-logo.png'
 
 const authenticatedOptions = (
   <Fragment>
-    <NavLink to='/my-wall' className='nav-link'>My Sound Board</NavLink>
-    <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
-    <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+    <div style={{ display: 'inline-flex' }}>
+      <NavLink to='/my-sound-board' className='nav-link'>My Sound Board</NavLink>
+      <NavLink to='/create-chord' className='nav-link'>Create Chord</NavLink>
+      <NavLink to='/users/' className='nav-link'>Find Other Musicians</NavLink>
+    </div>
+    <div style={{ display: 'inline-flex', marginRight: '22px' }}>
+      <NavLink to='/change-password' className='nav-link' style={{ justifyContent: 'flex-end' }}>Change Password</NavLink>
+      <NavLink to='/sign-out' className='nav-link' style={{ justifyContent: 'flex-end' }}>Sign Out</NavLink>
+    </div>
   </Fragment>
 )
 
 const unauthenticatedOptions = (
   <Fragment>
-    <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
-    <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
+    <div style={{ display: 'inline-flex' }}>
+      <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
+      <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
+    </div>
   </Fragment>
 )
 
@@ -30,7 +36,7 @@ const Header = ({ user }) => (
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
+      <Nav className='ml-auto' style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
         {user ? authenticatedOptions : unauthenticatedOptions}
       </Nav>
     </Navbar.Collapse>

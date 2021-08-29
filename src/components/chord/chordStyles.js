@@ -2,7 +2,11 @@
 export const soundBoardTitleStyles = {
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center'
+  alignItems: 'center',
+  textShadow: '1px 1px black',
+  fontSize: '32px',
+  fontWeight: 'bold',
+  color: '#9966cc'
 }
 
 export const chordsContainerStyles = {
@@ -17,7 +21,7 @@ export const chordStyles = {
   textShadow: '2px',
   width: '45rem',
   border: '1px solid black',
-  borderRadius: '7px',
+  borderRadius: '13px',
   margin: '5px auto',
   padding: '10px'
 }

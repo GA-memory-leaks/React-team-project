@@ -42,9 +42,11 @@ class ListUsers extends React.Component {
     return (
       <>
         <div style={soundBoardTitleStyles}>
-          <h3 style={{ margin: '0 auto' }}>Here are all the other musicians</h3>
+          <h1 style={{ margin: '0 auto' }}>THE MOSH PIT!</h1>
         </div>
-        <div style={chordsContainerStyles}>{usersJsx}</div>
+        <div style={chordsContainerStyles}>
+          {usersJsx}
+        </div>
       </>
     )
   }

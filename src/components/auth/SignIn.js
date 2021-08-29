@@ -36,7 +36,7 @@ onSignIn = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/my-wall'))
+    .then(() => history.push('/my-sound-board'))
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({

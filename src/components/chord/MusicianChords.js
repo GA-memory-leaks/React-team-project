@@ -51,7 +51,7 @@ class MusicianChords extends React.Component {
     return (
       <>
         <div style={soundBoardTitleStyles}>
-          <h3 style={{ margin: '0 auto' }}>This Sound Board belongs to {musician}</h3>
+          <h1 style={{ margin: '0 auto' }}>{musician}&apos;s Sound Board</h1>
         </div>
         <div style={chordsContainerStyles}>
           {chordJsx}
