@@ -32,12 +32,12 @@ class MusicianChords extends React.Component {
   render () {
     const { chords, musician } = this.state
     if (chords === null) {
-      return 'Loading...'
+      return (<p style={{ fontFamily: 'Playfair Display' }}>Loading...</p>)
     }
     let chordJsx
     const musicianChords = chords.filter(chord => this.props.match.params.id === chord.owner)
     if (musicianChords.length === 0) {
-      chordJsx = `${musician} has not posted any chords`
+      chordJsx = <p style={{ fontFamily: 'Playfair Display' }}>{musician} has not posted any chords</p>
     } else {
       chordJsx = musicianChords.map(chord => (
         <Card key={chord._id} style={chordStyles}>

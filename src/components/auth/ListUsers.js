@@ -23,12 +23,12 @@ class ListUsers extends React.Component {
   render () {
     const { users } = this.state
     if (this.state.users === null) {
-      return 'Loading...'
+      return (<p style={{ fontFamily: 'Playfair Display' }}>Loading...</p>)
     }
     let usersJsx
     const otherMusicians = users.filter(musician => this.props.user._id !== musician._id)
     if (otherMusicians.length === 0) {
-      usersJsx = 'No other musicians, check back soon'
+      usersJsx = <p style={{ fontFamily: 'Playfair Display' }}>No other musicians, check back soon</p>
     } else {
       usersJsx = otherMusicians.map(musician => (
         <Card key={musician._id} style={chordStyles}>
