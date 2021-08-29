@@ -1,7 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, Card } from 'react-bootstrap'
 import { updateChord, oneChord } from './../../api/chord-auth'
+import { formSoundBoardTitleStyles, formChordStyles, formTitleStyles, formBodyStyles } from './chordStyles'
 
 class UpdateChord extends React.Component {
   constructor (props) {
@@ -52,28 +53,34 @@ class UpdateChord extends React.Component {
     const { title, body } = this.state.chord
     return (
       <>
-        <h3>Update your chord!</h3>
-        <Form onSubmit={() => this.handleSubmit(this.props.match.params.id)}>
-          <Form.Group controlId='title'>
-            <Form.Label>Chord Title</Form.Label>
-            <Form.Control
-              required
-              name='title'
-              value={title}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='body'>
-            <Form.Label>Body</Form.Label>
-            <Form.Control
-              required
-              name='body'
-              value={body}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button type='submit' style={{ marginTop: '5px' }}>Update Chord</Button>
-        </Form>
+        <div style={formSoundBoardTitleStyles}>
+          <h1 style={{ margin: '0 auto' }}>Update Your Chord!</h1>
+        </div>
+        <Card style={formChordStyles}>
+          <Form onSubmit={() => this.handleSubmit(this.props.match.params.id)}>
+            <Form.Group controlId='title' style={{ marginTop: '9px' }}>
+              <Form.Control
+                required
+                name='title'
+                value={title}
+                onChange={this.handleChange}
+                style={formTitleStyles}
+              />
+            </Form.Group>
+            <Form.Group controlId='body' style={{ marginTop: '6px', marginBottom: '5px' }}>
+              <Form.Control
+                required
+                name='body'
+                value={body}
+                onChange={this.handleChange}
+                style={formBodyStyles}
+              />
+            </Form.Group>
+            <div style={{ marginLeft: '12px' }}>
+              <Button type='submit' style={{ marginTop: '11px', fontFamily: 'Playfair Display' }}>Update Chord</Button>
+            </div>
+          </Form>
+        </Card>
       </>
     )
   }
