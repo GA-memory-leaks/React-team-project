@@ -4,6 +4,8 @@
 
 Nathan Feldman Nick Caldwell Tommy Cravens
 
+This app must be run on a browser that supports Google Fonts. This includes all fully updated versions of Chrome, Firefox, Safari, Opera, and Explorer.
+
 ## Deployed link:
 
 https://ga-memory-leaks.github.io/React-team-project/
