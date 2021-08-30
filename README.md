@@ -1,16 +1,37 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+[![Virtuoso Logo](public/images/sedg-Virtuoso-50.png)](https://ga-memory-leaks.github.io/React-team-project/)
 
-# react-auth-template
+# Virtuoso: social media for musicians
 
 Nathan Feldman Nick Caldwell Tommy Cravens
 
 This app must be run on a browser that supports Google Fonts. This includes all fully updated versions of Chrome, Firefox, Safari, Opera, and Explorer.
 
-## Deployed link:
+## Important links:
++ [Deployed Client](https://ga-memory-leaks.github.io/React-team-project/)
++ [Deployed API](https://quiet-everglades-08349.herokuapp.com)
++ [Client Repo](https://github.com/GA-memory-leaks/React-team-project)
++ [API Repo](https://github.com/GA-memory-leaks/GA-team-project)
 
-https://ga-memory-leaks.github.io/React-team-project/
+## Technologies Used
++ React
++ HTML/CSS
++ JavaScript
++ Express
++ Mongoose
++ Mongodb
 
-![description](https://media.git.generalassemb.ly/user/37194/files/4253a000-0680-11ec-9447-59c92c351688)
+## Updates for next version
+1. Add line breaks to the body input field when creating and updating a chord
+2. Fix accessibility and mobile view issues
+3. Add a 'like' button on the chords so musicians can like each others chords (maybe up vote/down vote)
+4. Add a comment feature so musicians can comment on each others posts
+5. Add a news feed feature so a musicians wall displays the most recent chords of musicians the user has followed or liked
+6. Add another user type so Record Labels can create an account and interact with musicians
+7. Add a live chat or a messaging feature
+
+
+
+![description](https://media.git.generalassemb.ly/user/37194/files/82619e00-0972-11ec-99d4-e57b363e9dd1)
 
 ![userstories](https://media.git.generalassemb.ly/user/37194/files/60210500-0680-11ec-91da-798e62725501)
 
