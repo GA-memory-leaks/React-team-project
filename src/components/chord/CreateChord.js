@@ -58,6 +58,8 @@ class CreateChord extends React.Component {
             </Form.Group>
             <Form.Group controlId='body' style={{ marginTop: '6px', marginBottom: '5px' }}>
               <Form.Control
+                as="textarea"
+                rows={1}
                 required
                 name='body'
                 value={body}

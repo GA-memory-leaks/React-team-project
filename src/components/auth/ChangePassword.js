@@ -35,7 +35,7 @@ class ChangePassword extends Component {
           variant: 'success'
         })
       )
-      .then(() => history.push('/'))
+      .then(() => history.push('/my-sound-board'))
       .catch((error) => {
         this.setState({ oldPassword: '', newPassword: '' })
         msgAlert({
